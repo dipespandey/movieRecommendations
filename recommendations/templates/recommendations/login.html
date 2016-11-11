@@ -1,0 +1,25 @@
+{% extends 'recommendations/base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags%}
+
+{%block content%}
+
+
+
+<div class="container">
+    <form class="form-signin span4" id = "login-form" method="POST" action=".">
+        <h3 class="form-signin-heading">Please Sign in </h3>
+        {% csrf_token %}
+        {% if bad_details %}
+        <p><strong>Your username and/or password were incorrect !</strong></p>
+        {% elif disabled_account %}
+        <p><strong>Your Movie Engine account is currently diabled.</strong></p>
+        {%endif%}
+
+        {{login_form|crispy}}
+        
+        <button class="btn btn-primary" type="submit">Sign in</button>
+    </form>
+</div>
+
+{%endblock%}

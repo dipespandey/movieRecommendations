@@ -1,0 +1,86 @@
+{% extends 'recommendations/base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+        
+		  <div class="thumbnail">
+
+            <img src="{{item.image_url}}" alt="">
+            <div class="caption" style="float:left; padding-left:80px;">
+
+                <h3>{{item.title}}</h3> 
+                <h5> in {%for i in catList%}<a href="/categories/{{i.id}}">{{i.category}}</a>,  {%endfor%}</h5>
+                <h5> Released: {{item.year}}</h5>
+                <p><span class="glyphicon glyphicon-star"></span>{{item.avg_rating}}</p>  
+                {# <p>{{product.desc}}</p> #}
+                
+                <form action="{%url 'movie_detail' id=item.id%}" method = "POST">
+                {% csrf_token%}
+                    {{ form.as_p}}
+                    <button class="btn btn-primary">Rate</button>
+                </form>
+
+                {% if messages %}
+                
+                    <div class="alert alert-success">
+                        <a href="." class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+            
+                {% endif %}
+
+            </div>
+        </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div id = "delay" class="container">
+        <h4>Similar Movies</h4>
+            {%for movie in movies%}   
+         
+             {% if forloop.first %}
+                 <div class ="row">
+             {% endif %}
+          
+            <div class="col-sm-3 col-lg-3 col-md-3 ">
+              
+              <div class="thumbnail">
+                  
+                  <a href="{%url 'movie_detail' id=movie.id %}">
+                   
+                   
+                  <div class="caption">
+                      <img src="#" alt="" class="img-responsive"> </a>
+                 
+                      <h5 style="font-weight:bold;">{{movie.title}}</h5>
+                      <p>{{movie.genres}}</p> 
+                      
+                      <p><span class="glyphicon glyphicon-star"></span>{{movie.avg_rating}}</p>
+                  
+                    </a></div>
+              </div> 
+           
+          </div>
+        
+
+
+          {% if forloop.counter|divisibleby:4 %}
+            </div><br>
+          <div class="row">
+          
+          {% endif %}
+
+          {% if forloop.last %}
+            </div><br>
+          {% endif %}
+  
+    {% endfor %}
+
+    </div>
+
+ 
+{% endblock %}
+

@@ -1,0 +1,67 @@
+{%extends 'recommendations/base.html'%}
+
+{%load staticfiles%}
+
+{%block content%}
+	  <h4> Top Movies in {{category}}</h4>
+    {%for movie in movies%}   
+         
+        {% if forloop.first %}
+          <div class ="row">
+        {% endif %}
+          
+            <div class="col-sm-3 col-lg-3 col-md-3 ">
+              
+              <div class="thumbnail">
+                  
+                  <a href="{%url 'movie_detail' id=movie.id %}">
+                   
+                   
+                  <div class="caption">
+                      <img src="#" alt="" class="img-responsive"> </a>
+                 
+                      <h5 style="font-weight:bold;">{{movie.title}}</h5>
+                      <p>{{movie.genres}}</p> 
+                      
+                      <p><span class="glyphicon glyphicon-star"></span>{{movie.avg_rating}}</p>
+                  
+                    </a></div>
+              </div> 
+           
+          </div>
+        
+
+
+          {% if forloop.counter|divisibleby:4 %}
+            </div><br>
+          <div class="row">
+          
+          {% endif %}
+
+          {% if forloop.last %}
+            </div><br>
+          {% endif %}
+  
+    {% endfor %}
+
+           <div class="pagination">
+            <span class="step-links ">
+                {% if movies.has_previous %}
+                {# <a href="#" class="btn btn-info" role="button">Link Button</a> #}
+
+                    <a href="?page={{ movies.previous_page_number }}" class = "btn btn-primary" role="button">Previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ movies.number }} of {{ movies.paginator.num_pages }}.
+                </span>
+
+                {% if movies.has_next %}
+                    <a href="?page={{ movies.next_page_number }}" class="btn btn-primary" role="button">Next</a>
+                {% endif %}
+            </span>
+        </div>    
+    
+
+
+{%endblock%}

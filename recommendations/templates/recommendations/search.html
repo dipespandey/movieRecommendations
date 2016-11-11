@@ -1,0 +1,38 @@
+{%extends 'recommendations/base.html' %}
+{%load staticfiles%}
+
+
+{%block content%}
+
+ {% if query %}
+    <h2>{{count}} Results for "{{query|escape}}" found:</h2>
+    {% if results %}
+      <ul>
+    <div class="container">
+    <div class="bg-success">
+
+      {% for product in pro %}
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="panel panel-primary">
+                <div class="panel-heading">{{ product.item_name }}<br>{{rs}}{{ product.item_price }}</div>
+                <div class="panel-body"><img src="{{ product.item_image.url }}" class="img-rounded" alt="Cinque Terre" width="304" height="236" ></div>
+                <div class="panel-footer"><a href="http://127.0.0.1:8000/"><button type="button" class="btn btn-success">BID</button></a></div>
+              
+              </div>
+            </div>
+      {% endfor %}
+  </div>  
+
+    </div>
+
+  </div>
+  </div>
+
+      </ul>
+    
+    {% endif %}
+ {% endif %}
+
+{%endblock%}

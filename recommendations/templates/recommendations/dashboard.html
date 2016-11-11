@@ -1,0 +1,37 @@
+{%extends 'recommendations/base.html'%}
+{%load staticfiles%}
+
+
+{%block content%}
+ 	<div class="container-fluid">
+        <div class="row">
+   		    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          	
+          	<h1 class="page-header text">{{user.username}}</h1>
+
+        	<div class="row placeholders">
+	            <div class="col-xs-6 col-sm-3 placeholders">
+	            	<!-- <img src="{{profile.picture.url}}" class="img-circle" width="200px"> -->
+	              <!-- <h4 class="username">{{user.username}}</h4> -->
+	              <!-- <span class="text-muted">{{profile.address}}</span> -->
+	            </div>
+	        </div>
+
+	         <h2 class="sub-header">My Rated Movies</h2>
+
+	     
+    		{%for item in ratings%}   
+       			{{item.movie.title}} {{item.rating}}  <br>
+      		{% endfor %}
+
+
+			</div>
+
+	 	</div>
+	 	<br>
+	 	<a href="/refined_similarities"><button class="btn btn-primary">Get Recommendations</button></a>
+ 	</div>
+
+
+
+{%endblock%}
