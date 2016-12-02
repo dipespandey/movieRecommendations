@@ -5,6 +5,13 @@ The approach used is MatrixFactorization using Stochastic Gradient Descent. Firs
 
 It also trains the users on the go, i.e. when the users rate movies, these data are used to refine the recommendations. For this, the users are again trained separately.
 
+## Concepts Used
+- Cosine Similarity
+- Matrix Factorization
+- Stochastic Gradient Descent
+- MovieDB API Usage for Movie Images
+
+
 ## Reference Links:
     http://blog.ethanrosenthal.com/2016/01/09/explicit-matrix-factorization-sgd-als/
     https://www.youtube.com/watch?v=UfNU3Vhv5CA</li>
