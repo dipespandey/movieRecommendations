@@ -1,4 +1,3 @@
-# movieRecommendations
 ```html
 <p>movieRecommendations is a simple django based movie recommendation engine. It uses the dataset from movielens, link: http://grouplens.org/datasets/movielens/100k/</p>
 
@@ -37,5 +36,5 @@ Usage:
     <li> check the website
         ./manage.py runserver
     </li>
-    
+</ul>    
 ```
