@@ -8,17 +8,17 @@ It also trains the users on the go, i.e. when the users rate movies, these data 
     https://www.youtube.com/watch?v=UfNU3Vhv5CA</li>
 
 ## Usage:
- ### Get the necessary packages: 
+ ###### Get the necessary packages: 
  ```
  numpy, pandas, matplotlib
 ```  
-### Migrate the database: 
+###### Migrate the database: 
 ```
 ./manage.py makemigrations
 ./manage.py migrate
 ```
 
-### Populate the database with movie details , takes a few hours, if you have a better way, please suggest
+###### Populate the database with movie details , takes a few hours, if you have a better way, please suggest
 ```
 cd recommendations/
 from populate import *
@@ -29,7 +29,7 @@ AllRatings.get_all_ratings()
 AllGenres.get_all_genres()
 ```
 
- ### check the website
+ ###### check the website
 ```
 ./manage.py runserver
 ```
