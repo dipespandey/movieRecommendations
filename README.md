@@ -14,7 +14,7 @@ It also trains the users on the go, i.e. when the users rate movies, these data 
 
 ## Reference Links:
     http://blog.ethanrosenthal.com/2016/01/09/explicit-matrix-factorization-sgd-als/
-    https://www.youtube.com/watch?v=UfNU3Vhv5CA</li>
+    https://www.youtube.com/watch?v=UfNU3Vhv5CA
 
 ## Usage:
 ###### Get the necessary packages: 
