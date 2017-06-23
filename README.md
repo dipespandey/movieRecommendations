@@ -1,5 +1,5 @@
 # movieRecommendations
-movieRecommendations is a simple django based movie recommendation engine. It uses the dataset from movielens, link: http://grouplens.org/datasets/movielens/100k/
+A simple django based movie recommendation engine. It uses the dataset from movielens, link: http://grouplens.org/datasets/movielens/100k/
 
 The approach used is MatrixFactorization using Stochastic Gradient Descent. First, the given movielens dataset is used to create a movie-movie similarity matrix (using Collaborative Filtering). Then this data is used to display the top similar movies to a movie when the user browses to the particular movie.
 
