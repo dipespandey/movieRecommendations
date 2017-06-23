@@ -27,7 +27,7 @@ It also trains the users on the go, i.e. when the users rate movies, these data 
 ./manage.py migrate
 ```
 
-###### Populate the database with movie details , takes a few hours, if you have a better way, please suggest
+###### Populate the database with movie details (takes a few hours, if you have a better way, please suggest)
 ```
 cd recommendations/
 from populate import *
